@@ -2,14 +2,15 @@ package main
 
 import (
 	"api-services/controllers"
+	"api-services/initializers"
 	"api-services/middleware"
 
 	"github.com/gin-gonic/gin"
 )
 
 func init() {
-	// initializers.LoadEnv()    // please your check .env
-	// initializers.Connection() // please check your connection database
+	initializers.LoadEnv()    // please your check .env
+	initializers.Connection() // please check your connection database or comment if your not use db
 }
 
 func main() {
