@@ -3,6 +3,7 @@ package controllers
 import (
 	"api-services/initializers"
 	"api-services/models"
+	"api-services/utils"
 	"net/http"
 	"os"
 	"time"
@@ -23,7 +24,7 @@ func Register(context *gin.Context) {
 
 	context.Bind(&request)
 
-	password, _ := initializers.HashPassword(request.Password)
+	password, _ := utils.HashPassword(request.Password)
 
 	// Create a post
 	create := models.Users{
@@ -94,7 +95,7 @@ func Login(context *gin.Context) {
 		}
 
 		// check password is true or not
-		if initializers.CheckPasswordHash(request.Password, users.Password) {
+		if utils.CheckPasswordHash(request.Password, users.Password) {
 			context.JSON(http.StatusOK, gin.H{
 				"code":    200,
 				"status":  true,
