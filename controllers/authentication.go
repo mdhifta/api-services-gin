@@ -105,7 +105,7 @@ func Login(context *gin.Context) {
 			})
 		} else {
 			context.JSON(http.StatusOK, gin.H{
-				"code":    200,
+				"code":    404,
 				"status":  false,
 				"message": "Upps.. your password wrong!",
 				"data":    nil,
