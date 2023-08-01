@@ -10,11 +10,11 @@ import (
 
 func SendEmail(subject string, message string, to []string) {
 	// Connect to the SMTP Server
-	auth := smtp.PlainAuth("", os.Getenv("EMAIL"), os.Getenv("PASSWORD"), os.Getenv("HOST"))
+	auth := smtp.PlainAuth("", os.Getenv("EMAIL"), os.Getenv("PASSWORD_EMAIL"), os.Getenv("HOST_EMAIL"))
 
 	// set message
 	msg := "Subject: " + subject + "\n" + message
-	err := smtp.SendMail(os.Getenv("SERVERNAME"), auth, os.Getenv("EMAIL"), to, []byte(msg))
+	err := smtp.SendMail(os.Getenv("SERVERNAME_EMAIL"), auth, os.Getenv("EMAIL"), to, []byte(msg))
 
 	if err != nil {
 		fmt.Println(err)
@@ -23,7 +23,7 @@ func SendEmail(subject string, message string, to []string) {
 
 func SendEmailHTML(subject string, templatePath string, link string, to []string) {
 	// Connect to the SMTP Server
-	auth := smtp.PlainAuth("", os.Getenv("EMAIL"), os.Getenv("PASSWORD"), os.Getenv("HOST"))
+	auth := smtp.PlainAuth("", os.Getenv("EMAIL"), os.Getenv("PASSWORD_EMAIL"), os.Getenv("HOST_EMAIL"))
 
 	// get html
 	var body bytes.Buffer
@@ -35,7 +35,7 @@ func SendEmailHTML(subject string, templatePath string, link string, to []string
 	headers := "MIME-version: 1.0;\nContent-Type: text/html;charset=\"UTF-8\";"
 	msg := "Subject:" + subject + "\n" + headers + "\n\n" + body.String()
 
-	err = smtp.SendMail(os.Getenv("SERVERNAME"), auth, os.Getenv("EMAIL"), to, []byte(msg))
+	err = smtp.SendMail(os.Getenv("SERVERNAME_EMAIL"), auth, os.Getenv("EMAIL"), to, []byte(msg))
 
 	if err != nil {
 		fmt.Println(err)
