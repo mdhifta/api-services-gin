@@ -15,4 +15,6 @@ func Services(context *gin.Context) {
 			"access": true,
 		},
 	})
+
+	return
 }

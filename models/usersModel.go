@@ -16,3 +16,8 @@ type Users struct {
 	Password     string `json:"password"`
 	Roles        int    `json:"roles"` // 0 = admin or 1 = users
 }
+
+// if you want to setting name table
+func (users *Users) TableName() string {
+	return "users"
+}
