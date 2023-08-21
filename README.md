@@ -53,7 +53,7 @@ first you have to use the email settings in .env and then use the feature in the
   - Request POST 
     * utils.RequestPOST("sub-url")
       - insert your sub url 
-      - you can modify code at utils -> requestAPI.gp
+      - you can modify code at utils -> requestAPI.go
       - add data post to example RequestPOST(url string, json string)
       - user with new input data. to example RequestPOST("manga/", `{ "name": "myname" }`)
       - and change your jsonPost to jsonPost := json
