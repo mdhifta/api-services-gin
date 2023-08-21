@@ -9,8 +9,8 @@ import (
 )
 
 func init() {
-	initializers.LoadEnv()    // please your check .env
-	initializers.Connection() // please check your connection database or comment if your not use db
+	initializers.LoadEnv() // please your check .env
+	// initializers.Connection() // please check your connection database or comment if your not use db
 }
 
 func main() {
@@ -30,6 +30,9 @@ func main() {
 		// route with middleware
 		api.Use(middleware.MiddlewareApi)
 		api.GET("/", controllers.Services)
+
+		// route request api example
+		api.GET("/get-response", controllers.GetResponse)
 
 	}
 
