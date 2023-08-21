@@ -40,3 +40,20 @@ first you have to use the email settings in .env and then use the feature in the
     * utils.CheckPasswordHash("your_password", "password_encrypt")
       - insert your_password string
       - insert password_encrypt is password your encrypt before
+
+
+  # REQUEST CONSUME API
+  enter the api_url (base_url) dan api_key (opsional) data in the .env according to your wishes
+  
+  - Request GET
+    * utils.RequestGET("sub-url")
+      - insert your sub url 
+      - for example in this code with mangadex api
+        
+  - Request POST 
+    * utils.RequestGET("sub-url")
+      - insert your sub url 
+      - you can modify code at utils -> requestAPI.gp
+      - add data post to example RequestGET(url string, json string)
+      - user with new input data. to example RequestGET("manga/", `{ "name": "myname" }`)
+      - and change your jsonPost to jsonPost := json
