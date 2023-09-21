@@ -28,9 +28,8 @@ func Register(context *gin.Context) {
 
 	// Create a post
 	create := models.Users{
-		Fname: request.Fname,
-		Lname: request.Lname,
-
+		Fname:        request.Fname,
+		Lname:        request.Lname,
 		Phone_number: request.Phone_number,
 		Email:        request.Email,
 		Password:     password,
